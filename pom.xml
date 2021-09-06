@@ -8,6 +8,7 @@
 	<description>Create virtual chest shops</description>
 	<build>
 		<finalName>BossShopPro</finalName>
+		<defaultGoal>clean package</defaultGoal>
 		<resources>
 			<resource>
 				<targetPath>.</targetPath>
@@ -16,6 +17,9 @@
 				<includes>
 					<include>*.yml</include>
 				</includes>
+				<excludes>
+					<exclude>*.jar</exclude>
+				</excludes>
 			</resource>
 		</resources>
 		<plugins>
@@ -24,8 +28,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>16</source>
+					<target>16</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -72,7 +76,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.12</version>
+			<version>1.18.20</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -96,7 +100,7 @@
 		<dependency>
 			<groupId>net.md-5</groupId>
 			<artifactId>bungeecord-api</artifactId>
-			<version>1.14-SNAPSHOT</version>
+			<version>1.16-R0.4</version>
 		</dependency>
 
 		<!-- Used for economy -->
@@ -143,7 +147,7 @@
 		<dependency>
 			<groupId>com.github.Ben12345rocks</groupId>
 			<artifactId>VotingPlugin</artifactId>
-			<version>LATEST</version>
+			<version>6.6.3</version>
 			<scope>provided</scope>
 		</dependency>
 
