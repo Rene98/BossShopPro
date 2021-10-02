@@ -2,6 +2,7 @@ package org.black_ixx.bossshop.managers.item;
 
 import org.black_ixx.bossshop.core.BSBuy;
 import org.black_ixx.bossshop.managers.ClassManager;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -223,7 +224,23 @@ public abstract class ItemDataPart {
 
     public boolean isMetaSimilar(ItemStack shop_item, ItemStack player_item, BSBuy buy, Player p) {
         return shop_item.getType() == player_item.getType()
-                && shop_item.getItemMeta().equals(player_item.getItemMeta());
+                && ((shop_item.getType() == Material.SPAWNER) ?
+                isSimilarSpawner(shop_item, player_item, buy, p) : shop_item.getItemMeta().equals(player_item.getItemMeta()));
+    }
+
+    public boolean isSimilarSpawner(ItemStack shop_item, ItemStack player_item, BSBuy buy, Player p) {
+        if (shop_item.getType() == Material.SPAWNER) {
+            if (player_item.getType() != Material.SPAWNER) {
+                return false;
+            }
+
+            if (ClassManager.manager.getSpawnerHandler() != null) {
+                String spawners = ClassManager.manager.getSpawnerHandler().readSpawner(shop_item);
+                String spawnerp = ClassManager.manager.getSpawnerHandler().readSpawner(player_item);
+                return spawners.equalsIgnoreCase(spawnerp);
+            }
+        }
+        return true;
     }
 
 

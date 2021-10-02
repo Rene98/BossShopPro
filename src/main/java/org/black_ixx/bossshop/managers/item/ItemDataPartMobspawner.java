@@ -66,6 +66,8 @@ public class ItemDataPartMobspawner extends ItemDataPart {
             if (ClassManager.manager.getSpawnerHandler() != null) {
                 String spawners = ClassManager.manager.getSpawnerHandler().readSpawner(shop_item);
                 String spawnerp = ClassManager.manager.getSpawnerHandler().readSpawner(player_item);
+                //p.sendMessage("spawners " + spawners);
+                //p.sendMessage("spawnerp " + spawnerp);
                 return spawners.equalsIgnoreCase(spawnerp);
             }
         }
