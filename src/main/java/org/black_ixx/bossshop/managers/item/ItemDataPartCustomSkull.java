@@ -31,10 +31,12 @@ public class ItemDataPartCustomSkull extends ItemDataPart {
         profile.getProperties().put("textures", property);
         Field profileField = null;
         try {
+            assert skullMeta != null;
             profileField = skullMeta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException e) {
             e.printStackTrace();
         }
+        assert profileField != null;
         profileField.setAccessible(true);
         try {
             profileField.set(skullMeta, profile);
@@ -57,8 +59,9 @@ public class ItemDataPartCustomSkull extends ItemDataPart {
     public static String readSkullTexture(ItemStack i) {
         if (i.getType() == Material.PLAYER_HEAD) {
             SkullMeta meta = (SkullMeta) i.getItemMeta();
-            Field profileField = null;
+            Field profileField;
             try {
+                assert meta != null;
                 profileField = meta.getClass().getDeclaredField("profile");
                 profileField.setAccessible(true);
 

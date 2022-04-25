@@ -33,6 +33,15 @@
 	</build>
 
 	<repositories>
+		<!-- playerpoints -->
+		<repository>
+			<id>rosewood-repo</id>
+			<url>https://repo.rosewooddev.io/repository/public/</url>
+		</repository>
+		<repository>
+			<id>BenCodez Repo</id>
+			<url>https://nexus.bencodez.com/repository/maven-public/</url>
+		</repository>
 		<repository>
 			<id>repo</id>
 			<url>https://repo.glaremasters.me/repository/public/</url>
@@ -77,7 +86,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.22</version>
+			<version>1.18.24</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -88,6 +97,13 @@
             <version>1.14-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- Used for data handling -->
         <dependency>
@@ -106,9 +122,9 @@
 
 		<!-- Used for economy -->
 		<dependency>
-			<groupId>net.milkbowl</groupId>
+			<groupId>com.github.milkbowl</groupId>
 			<artifactId>vault</artifactId>
-			<version>1.7</version>
+			<version>1.7.3</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -131,24 +147,24 @@
 		<!-- Adds player points support -->
 		<dependency>
 			<groupId>org.black_ixx</groupId>
-			<artifactId>PlayerPoints</artifactId>
-			<version>2.1.4</version>
+			<artifactId>playerpoints</artifactId>
+			<version>3.2.3</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<!-- Adds jobs support -->
 		<dependency>
-			<groupId>com.gamingmesh.jobs</groupId>
+			<groupId>com.github.Zrips</groupId>
 			<artifactId>Jobs</artifactId>
-			<version>4.9.1</version>
+			<version>4.17.2</version>
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds voting plugin support -->
+		<!-- Adds voting-plugin support -->
 		<dependency>
-			<groupId>com.github.Ben12345rocks</groupId>
-			<artifactId>VotingPlugin</artifactId>
-			<version>6.8.4</version>
+			<groupId>com.bencodez</groupId>
+			<artifactId>votingplugin</artifactId>
+			<version>6.9</version>
 			<scope>provided</scope>
 		</dependency>
 
