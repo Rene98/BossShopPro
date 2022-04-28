@@ -32,7 +32,7 @@ public class BSMultiplier {
 
 
         BSPriceType type = BSPriceType.detectType(parts[1].trim());
-        double multiplier = 1.0;
+        double multiplier;
         int range = RANGE_ALL;
 
         if (type == null || !type.supportsMultipliers()) {
@@ -97,7 +97,6 @@ public class BSMultiplier {
                 case RANGE_ALL: //Multiplier supports both types -> buy price is multiplied and sell reward is divided
                     switch (range) {
                         case RANGE_ALL:
-                            return d * this.multiplier;
                         case RANGE_PRICE_ONLY:
                             return d * this.multiplier;
                         case RANGE_REWARD_ONLY:

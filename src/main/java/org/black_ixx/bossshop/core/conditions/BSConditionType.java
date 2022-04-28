@@ -44,7 +44,7 @@ public abstract class BSConditionType {
 
 
     private static List<BSConditionType> types;
-    private String[] names = createNames();
+    private final String[] names = createNames();
 
     public static void loadTypes() {
         types = new ArrayList<>();

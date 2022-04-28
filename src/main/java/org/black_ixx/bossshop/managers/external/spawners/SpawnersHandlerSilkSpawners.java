@@ -6,10 +6,12 @@ import org.black_ixx.bossshop.managers.misc.InputReader;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Objects;
+
 
 public class SpawnersHandlerSilkSpawners implements ISpawnerHandler, ISpawnEggHandler {
 
-    private SilkUtil util;
+    private final SilkUtil util;
 
 
     public SpawnersHandlerSilkSpawners() {
@@ -21,7 +23,7 @@ public class SpawnersHandlerSilkSpawners implements ISpawnerHandler, ISpawnEggHa
         if (type == null) {
             return null;
         }
-        return util.newSpawnerItem(type.getTypeId(), null, i.getAmount(), false);
+        return util.newSpawnerItem(String.valueOf(type.getTypeId()), null, i.getAmount(), false);
     }
 
     public ItemStack transformEgg(ItemStack i, String entityName) {
@@ -29,19 +31,17 @@ public class SpawnersHandlerSilkSpawners implements ISpawnerHandler, ISpawnEggHa
         if (type == null) {
             return null;
         }
-        return util.newEggItem(type.getTypeId(), entityName, i.getAmount());
+        return util.newEggItem(String.valueOf(type.getTypeId()), i.getAmount(),entityName);
     }
 
 
     public String readSpawner(ItemStack i) {
-        short entityid = util.getStoredSpawnerItemEntityID(i);
-        String creaturename = util.getCreatureName(entityid);
-        return creaturename;
+        short EntityId = Short.parseShort(Objects.requireNonNull(util.getStoredSpawnerItemEntityID(i)));
+        return util.getCreatureName(String.valueOf(EntityId));
     }
 
     public String readEgg(ItemStack i) {
-        short entityid = util.getStoredEggEntityID(i);
-        String creaturename = util.getCreatureName(entityid);
-        return creaturename;
+        short EntityId = Short.parseShort(Objects.requireNonNull(util.getStoredEggEntityID(i)));
+        return util.getCreatureName(String.valueOf(EntityId));
     }
 }

@@ -16,14 +16,14 @@ import java.util.UUID;
 public class ShopItemPurchaseTask implements Runnable {
 
 
-    private UUID uuid;
-    private BSBuy buy;
-    private BSShop shop;
-    private BSShopHolder holder;
-    private ClickType clicktype;
-    private BSRewardType rewardtype;
-    private BSPriceType pricetype;
-    private InventoryClickEvent event;
+    private final UUID uuid;
+    private final BSBuy buy;
+    private final BSShop shop;
+    private final BSShopHolder holder;
+    private final ClickType clicktype;
+    private final BSRewardType rewardtype;
+    private final BSPriceType pricetype;
+    private final InventoryClickEvent event;
 
     public ShopItemPurchaseTask(Player p, BSBuy buy, BSShop shop, BSShopHolder holder, ClickType clicktype, BSRewardType rewardtype, BSPriceType pricetype, InventoryClickEvent event) {
         this.uuid = p.getUniqueId();

@@ -37,6 +37,35 @@
 	</build>
 
 	<repositories>
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+		<repository>
+			<id>mojang</id>
+			<url>https://libraries.minecraft.net/</url>
+		</repository>
+		<repository>
+			<id>paper-repo</id>
+			<url>https://papermc.io/repo/repository/maven-public/</url>
+		</repository>
+		<repository>
+			<id>nexus</id>
+			<url>https://mvn.lumine.io/repository/maven-public/</url>
+		</repository>
+		<repository>
+			<id>repo</id>
+			<url>https://repo.glaremasters.me/repository/public/</url>
+		</repository>
+		<repository>
+			<id>dustplanet</id>
+			<url>https://repo.dustplanet.de/artifactory/libs-release-local</url>
+		</repository>
+		<!-- Jitpack -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
 		<!-- playerpoints -->
 		<repository>
 			<id>rosewood-repo</id>
@@ -45,10 +74,6 @@
 		<repository>
 			<id>BenCodez Repo</id>
 			<url>https://nexus.bencodez.com/repository/maven-public/</url>
-		</repository>
-		<repository>
-			<id>repo</id>
-			<url>https://repo.glaremasters.me/repository/public/</url>
 		</repository>
 		<!-- placeholderapi -->
 		<repository>
@@ -65,15 +90,6 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>
-		<!-- Jitpack -->
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 	</repositories>
 
@@ -95,12 +111,19 @@
 		</dependency>
 
 		<!-- Used for skull -->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.14-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.bukkit</groupId>-->
+<!--            <artifactId>craftbukkit</artifactId>-->
+<!--            <version>1.14-R0.1-SNAPSHOT</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+		<!-- Used for skull -->
+		<dependency>
+			<groupId>com.mojang</groupId>
+			<artifactId>authlib</artifactId>
+			<version>1.5.21</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -108,7 +131,6 @@
 			<version>1.15</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<!-- Used for data handling -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -121,7 +143,7 @@
 		<dependency>
 			<groupId>net.md-5</groupId>
 			<artifactId>bungeecord-api</artifactId>
-			<version>1.16-R0.4</version>
+			<version>1.18-R0.1-SNAPSHOT</version>
 		</dependency>
 
 		<!-- Used for economy -->
@@ -184,7 +206,7 @@
 		<dependency>
 			<groupId>com.github.Realizedd</groupId>
 			<artifactId>TokenManager</artifactId>
-			<version>3.2.3</version>
+			<version>3.2.4</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -220,19 +242,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds coins support -->
-		<dependency>
-			<groupId>me.justeli.coins.main</groupId>
-			<artifactId>Coins</artifactId>
-			<version>1.9.2</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- Adds gadgets menu support -->
 		<dependency>
 			<groupId>com.yapzhenyie.GadgetsMenu</groupId>
 			<artifactId>GadgetsMenu</artifactId>
-			<version>4.3.32</version>
+			<version>4.6.3</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -256,9 +271,9 @@
 
 		<!-- Adds silk spawners support -->
 		<dependency>
-			<groupId>de.dustplanet.silkspawners.SilkSpawners</groupId>
-			<artifactId>SilkSpawners</artifactId>
-			<version>5.0.2</version>
+			<groupId>de.dustplanet</groupId>
+			<artifactId>silkspawners-v1_18_R2</artifactId>
+			<version>7.3.0</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -274,9 +289,10 @@
 
 		<!-- Used for language utils -->
 		<dependency>
-			<groupId>com.meowj</groupId>
+			<groupId>com.github.apachezy</groupId>
 			<artifactId>LangUtils</artifactId>
-			<version>1.6.1</version>
+			<!--Please check the latest version -->
+			<version>3.2.3</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

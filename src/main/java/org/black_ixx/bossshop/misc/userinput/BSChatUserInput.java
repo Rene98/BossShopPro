@@ -7,9 +7,9 @@ import java.util.UUID;
 
 public class BSChatUserInput {
 
-    private UUID uuid;
-    private BSUserInput input;
-    private long time;
+    private final UUID uuid;
+    private final BSUserInput input;
+    private final long time;
 
 
     public BSChatUserInput(Player p, BSUserInput input, long allowedDelay) {

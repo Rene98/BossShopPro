@@ -28,7 +28,7 @@ public class MathTools {
             } else {
                 l = new Locale(parts[0].trim());
             }
-            if (l != null && l.getCountry() != null) {
+            if (l.getCountry() != null) {
                 df = (DecimalFormat) NumberFormat.getInstance(l);
             }
         } catch (NullPointerException e) {
@@ -136,8 +136,7 @@ public class MathTools {
                         int decimal_place = InputReader.getInt(parts[2].trim(), -1);
                         double number = cutNumber(d, to_cut, decimal_place);
 
-                        String output = parts[3].trim().replace("%number%", MathTools.displayNumber(number, decimal_place));
-                        return output;
+                        return parts[3].trim().replace("%number%", MathTools.displayNumber(number, decimal_place));
                     }
                 }
             }

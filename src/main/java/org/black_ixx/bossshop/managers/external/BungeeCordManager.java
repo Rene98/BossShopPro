@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
+import org.jetbrains.annotations.NotNull;
 
 
 public class BungeeCordManager implements PluginMessageListener {
@@ -57,7 +58,7 @@ public class BungeeCordManager implements PluginMessageListener {
 
 
     @Override
-    public void onPluginMessageReceived(String channel, Player player, byte[] message) {
+    public void onPluginMessageReceived(@NotNull String channel, @NotNull Player player, byte[] message) {
         try {
             if (!channel.equals("BungeeCord")) {
                 return;

@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class SpawnersHandlerEpicSpawners implements ISpawnerHandler {
 
-    private EpicSpawners util;
+    private final EpicSpawners util;
 
 
     public SpawnersHandlerEpicSpawners() {

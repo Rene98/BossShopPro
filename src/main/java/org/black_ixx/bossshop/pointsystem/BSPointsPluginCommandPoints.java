@@ -8,7 +8,7 @@ import pgDev.bukkit.CommandPoints.CommandPoints;
 
 public class BSPointsPluginCommandPoints extends BSPointsPlugin {
     private pgDev.bukkit.CommandPoints.CommandPointsAPI pp;
-    private BossShop plugin;
+    private final BossShop plugin;
 
     public BSPointsPluginCommandPoints() {
         super("CommandPoints", "CP");

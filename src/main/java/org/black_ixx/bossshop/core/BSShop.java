@@ -42,7 +42,7 @@ public abstract class BSShop {
     private int highest_page; //Might not be correct but is used in case of a fix inventory having multiple pages
 
 
-    private Set<BSBuy> items = new LinkedHashSet<>();
+    private final Set<BSBuy> items = new LinkedHashSet<>();
 
     //////////////////////////// <- Constructor
 
@@ -231,11 +231,10 @@ public abstract class BSShop {
         int different_slots_amount = 0;
         for (BSBuy b : items) {
             if (b != null) {
+                //if choosing specific slot -> store all different slots and add them in the end
                 if (b.getInventoryLocation() == -1) { //If picking the next slot -> increasing slot number
                     different_slots_amount++;
-                } else if (!used_slots.contains(b.getInventoryLocation())) { //if choosing specific slot -> store all different slots and add them in the end
-                    used_slots.add(b.getInventoryLocation());
-                }
+                } else used_slots.add(b.getInventoryLocation());
                 if (b.getInventoryLocation() > highest) {
                     highest = b.getInventoryLocation();
                 }
@@ -298,6 +297,7 @@ public abstract class BSShop {
         for (Player p : Bukkit.getOnlinePlayers()) { //NEW!
             if (ClassManager.manager.getPlugin().getAPI().isValidShop(p.getOpenInventory())) {
                 BSShopHolder holder = ((BSShopHolder) p.getOpenInventory().getTopInventory().getHolder());
+                assert holder != null;
                 if (holder.getShop() == this) {
                     p.closeInventory();
                 }
@@ -309,6 +309,7 @@ public abstract class BSShop {
         for (Player p : Bukkit.getOnlinePlayers()) { //NEW!
             if (ClassManager.manager.getPlugin().getAPI().isValidShop(p.getOpenInventory())) {
                 BSShopHolder holder = ((BSShopHolder) p.getOpenInventory().getTopInventory().getHolder());
+                assert holder != null;
                 if (holder.getShop() == this) {
                     if (p != exclusion) {
                         return true;

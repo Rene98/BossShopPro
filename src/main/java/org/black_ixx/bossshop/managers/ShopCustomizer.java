@@ -95,7 +95,7 @@ public class ShopCustomizer {
         for (BSBuy buy : items) {
             if (buy != null) {
 
-                if (!showItem(shop, holder, buy, p, inventory, everything)) {
+                if (showItem(shop, holder, buy, p, inventory, everything)) {
                     continue;
                 }
 
@@ -142,7 +142,7 @@ public class ShopCustomizer {
         //Add items here because pages get updated at the end
         if (full) {
             for (BSBuy buy : layout.getItems()) {
-                if (!showItem(shop, holder, buy, p, inventory, locs)) {
+                if (showItem(shop, holder, buy, p, inventory, locs)) {
                     continue;
                 }
                 if (buy.getInventoryLocation() < 0 || buy.getInventoryLocation() >= items_per_page_one_page) {
@@ -215,27 +215,27 @@ public class ShopCustomizer {
             if (filled_locs.get(buy.getInventoryLocation()) == buy) {
                 //Same item checking for being added again. Probably for an item refresh? Allow!
             } else {
-                return false; //Different items do not have space here
+                return true; //Different items do not have space here
             }
         }
 
         if (p != null) {
-            if (ClassManager.manager.getSettings().getPropertyBoolean(Settings.HIDE_ITEMS_PLAYERS_DONT_HAVE_PERMISSIONS_FOR, buy) & !buy.hasPermission(p, false, null)) {
-                return false;
+            if (ClassManager.manager.getSettings().getPropertyBoolean(Settings.HIDE_ITEMS_PLAYERS_DONT_HAVE_PERMISSIONS_FOR, buy) & buy.hasPermission(p, false, null)) {
+                return true;
             }
 
             if (!buy.meetsCondition(holder, p)) {
-                return false;
+                return true;
             }
 
             BSDisplayItemEvent event = new BSDisplayItemEvent(p, shop, buy, inventory);
             Bukkit.getPluginManager().callEvent(event);
             if (event.isCancelled()) {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**

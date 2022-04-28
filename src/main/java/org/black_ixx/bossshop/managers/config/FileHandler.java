@@ -114,7 +114,9 @@ public class FileHandler {
             OutputStream out = new FileOutputStream(file);
             byte[] buf = new byte[1024];
             int len;
-            while ((len = in.read(buf)) > 0) {
+            while (true) {
+                assert in != null;
+                if (!((len = in.read(buf)) > 0)) break;
                 out.write(buf, 0, len);
             }
             out.close();
