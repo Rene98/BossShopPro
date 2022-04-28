@@ -13,10 +13,10 @@ public class BSTransformStringEvent extends BSEvent {
 
 
     private String text;
-    private Player target;
-    private BSShop shop;
-    private BSBuy buy;
-    private BSShopHolder holder;
+    private final Player target;
+    private final BSShop shop;
+    private final BSBuy buy;
+    private final BSShopHolder holder;
 
 
     public BSTransformStringEvent(String text, BSBuy item, BSShop shop, BSShopHolder holder, Player target) {

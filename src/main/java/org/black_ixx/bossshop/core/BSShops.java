@@ -12,11 +12,12 @@ import org.bukkit.inventory.InventoryView;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class BSShops {
 
-    private HashMap<Integer, BSShop> shops;
-    private HashMap<String, Integer> shopsIds;
+    private final HashMap<Integer, BSShop> shops;
+    private final HashMap<String, Integer> shopsIds;
 
     /////////////////////////////// <- Variables
     private int id = 0;
@@ -36,7 +37,7 @@ public class BSShops {
     private boolean loadShops(File folder, Settings settings, String parent_path) {
         boolean enable_shop_commands = false;
 
-        for (File f : folder.listFiles()) {
+        for (File f : Objects.requireNonNull(folder.listFiles())) {
             if (f != null) {
                 if (f.isDirectory()) {
                     if (settings.getLoadSubfoldersEnabled()) {
@@ -154,7 +155,7 @@ public class BSShops {
     }
 
     public BSShop getShop(int id) {
-        return shops.containsKey(id) ? shops.get(id) : null;
+        return shops.getOrDefault(id, null);
     }
 
     public BSShop getShopFast(int id) {
@@ -200,6 +201,7 @@ public class BSShops {
                 Inventory open_inventory = p.getOpenInventory().getTopInventory();
                 BSShopHolder h = (BSShopHolder) open_inventory.getHolder();
 
+                assert h != null;
                 if (h.getShop().isCustomizable()) {
                     if (!mode_serverpinging) {
                         if (ClassManager.manager.getSettings().getServerPingingEnabled(true)) {

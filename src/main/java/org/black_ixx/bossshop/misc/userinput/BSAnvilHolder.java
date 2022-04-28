@@ -4,6 +4,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public abstract class BSAnvilHolder implements InventoryHolder {
 
@@ -22,7 +25,7 @@ public abstract class BSAnvilHolder implements InventoryHolder {
      * @return inventory
      */
     @Override
-    public Inventory getInventory() {
+    public @NotNull Inventory getInventory() {
         return inventory;
     }
 
@@ -43,7 +46,7 @@ public abstract class BSAnvilHolder implements InventoryHolder {
             ItemStack item = inventory.getItem(2);
             if (item != null) { //Somehow the item in the result slot (slot 3) always is null?! Even when one is displayed by client
                 if (item.hasItemMeta()) {
-                    return item.getItemMeta().getDisplayName();
+                    return Objects.requireNonNull(item.getItemMeta()).getDisplayName();
                 }
             }
         }

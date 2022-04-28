@@ -36,6 +36,7 @@ public class AnvilTools {
         Inventory inventory = Bukkit.createInventory(holder, InventoryType.ANVIL);
         item = item.clone();
         ItemMeta meta = item.getItemMeta();
+        assert meta != null;
         meta.setDisplayName(title);
         item.setItemMeta(meta);
         inventory.setItem(0, item);

@@ -17,6 +17,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.Objects;
+
 public class BossShop extends JavaPlugin {
 
     public final static String NAME = "BossShopPro";
@@ -50,13 +52,13 @@ public class BossShop extends JavaPlugin {
         CommandManager commander = new CommandManager();
 
         if (getCommand("bs") != null) {
-            getCommand("bs").setExecutor(commander);
+            Objects.requireNonNull(getCommand("bs")).setExecutor(commander);
         }
         if (getCommand("bossshop") != null) {
-            getCommand("bossshop").setExecutor(commander);
+            Objects.requireNonNull(getCommand("bossshop")).setExecutor(commander);
         }
         if (getCommand("shop") != null) {
-            getCommand("shop").setExecutor(commander);
+            Objects.requireNonNull(getCommand("shop")).setExecutor(commander);
         }
 
 

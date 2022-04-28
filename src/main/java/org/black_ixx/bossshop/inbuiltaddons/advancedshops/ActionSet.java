@@ -8,17 +8,17 @@ import org.black_ixx.bossshop.managers.ClassManager;
 public class ActionSet {
 
 
-    private BSRewardType rewardT;
-    private BSPriceType priceT;
+    private final BSRewardType rewardT;
+    private final BSPriceType priceT;
 
-    private Object reward;
-    private Object price;
+    private final Object reward;
+    private final Object price;
 
-    private String msg;
+    private final String msg;
     private String permission;
 
-    private BSInputType inputtype;
-    private String inputtext;
+    private final BSInputType inputtype;
+    private final String inputtext;
 
     private boolean perm_is_group;
 
@@ -32,7 +32,7 @@ public class ActionSet {
         this.inputtype = inputtype;
         this.inputtext = inputtext;
 
-        if (extrapermission != null && extrapermission != "") {
+        if (extrapermission != null && !extrapermission.equals("")) {
             this.permission = extrapermission;
             if (permission.startsWith("[") && permission.endsWith("]")) {
                 if (permission.length() > 2) {

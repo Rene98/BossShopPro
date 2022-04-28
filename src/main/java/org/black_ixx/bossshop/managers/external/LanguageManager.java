@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class LanguageManager {
 
-    private String locale;
+    private final String locale;
 
     public LanguageManager() {
         locale = ClassManager.manager.getMessageHandler().getRaw("Locale");

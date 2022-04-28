@@ -22,7 +22,7 @@ import java.util.List;
 public class BossShopAPI {
 
 
-    private BossShop plugin;
+    private final BossShop plugin;
     private List<BossShopAddon> enabled_addons;
 
 
@@ -129,8 +129,10 @@ public class BossShopAPI {
         if (isValidShop(p.getOpenInventory())) {
             BSShopHolder holder = (BSShopHolder) p.getOpenInventory().getTopInventory().getHolder();
             if (force_new_creation) {
+                assert holder != null;
                 holder.getShop().openInventory(p, holder.getPage(), false);
             } else {
+                assert holder != null;
                 holder.getShop().updateInventory(p.getOpenInventory().getTopInventory(), holder, p, ClassManager.manager, holder.getPage(), holder.getHighestPage(), false);
             }
         }
@@ -317,7 +319,7 @@ public class BossShopAPI {
                 if (buy == null || buy.getItem() == null) {
                     continue;
                 }
-                if (buy.getConfigurationSection(sho).getBoolean(config_option) == false && buy.getConfigurationSection(sho).getInt(config_option) == 0) {
+                if (!buy.getConfigurationSection(sho).getBoolean(config_option) && buy.getConfigurationSection(sho).getInt(config_option) == 0) {
                     continue;
                 }
                 items.add(buy);

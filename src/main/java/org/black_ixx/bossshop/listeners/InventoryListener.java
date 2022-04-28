@@ -30,10 +30,10 @@ import java.util.WeakHashMap;
 public class InventoryListener implements Listener {
 
 
-    private WeakHashMap<Player, Long> lastClicks;
-    private WeakHashMap<Player, Integer> clickspamCounts;
+    private final WeakHashMap<Player, Long> lastClicks;
+    private final WeakHashMap<Player, Integer> clickspamCounts;
     private int clickDelay, clickspamDelay, clickspamWarnings, clickSpamForgetTime;
-    private BossShop plugin;
+    private final BossShop plugin;
 
     public InventoryListener(BossShop plugin) {
         this.plugin = plugin;
@@ -212,16 +212,8 @@ public class InventoryListener implements Listener {
     }
 
     public void playerLeave(PlayerEvent event) {
-        if (lastClicks != null) {
-            if (lastClicks.containsKey(event.getPlayer())) {
-                lastClicks.remove(event.getPlayer());
-            }
-        }
-        if (clickspamCounts != null) {
-            if (clickspamCounts.containsKey(event.getPlayer())) {
-                clickspamCounts.remove(event.getPlayer());
-            }
-        }
+        lastClicks.remove(event.getPlayer());
+        clickspamCounts.remove(event.getPlayer());
     }
 
 

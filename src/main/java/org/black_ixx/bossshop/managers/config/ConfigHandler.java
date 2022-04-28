@@ -22,6 +22,7 @@ public class ConfigHandler {
         }
 
         String main = config.getString("MainShop");
+        assert main != null;
         settings.setMainShop(main.toLowerCase());
         settings.setTransactionLogEnabled(config.getBoolean("EnableTransactionLog"));
         settings.setServerPingingSpeed((config.getInt("ServerPinging.Delay")));

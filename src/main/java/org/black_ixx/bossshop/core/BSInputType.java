@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import java.util.concurrent.Callable;
-
 public enum BSInputType {
 
     PLAYER {
@@ -29,12 +27,9 @@ public enum BSInputType {
                         return;
                     }
                     ClassManager.manager.getPlayerDataHandler().enteredInput(p, text);
-                    Bukkit.getScheduler().callSyncMethod(plugin, new Callable<Boolean>() {
-                        @Override
-                        public Boolean call() {
-                            buy.purchase(p, shop, holder, clicktype, rewardtype, pricetype, event, plugin, false);
-                            return true;
-                        }
+                    Bukkit.getScheduler().callSyncMethod(plugin, () -> {
+                        buy.purchase(p, shop, holder, clicktype, rewardtype, pricetype, event, plugin, false);
+                        return true;
                     });
                 }
             }.getUserInput(p, null, null, buy.getInputText(clicktype));
@@ -52,12 +47,9 @@ public enum BSInputType {
                 @Override
                 public void receivedInput(final Player p, String text) {
                     ClassManager.manager.getPlayerDataHandler().enteredInput(p, text);
-                    Bukkit.getScheduler().callSyncMethod(plugin, new Callable<Boolean>() {
-                        @Override
-                        public Boolean call() {
-                            buy.purchase(p, shop, holder, clicktype, rewardtype, pricetype, event, plugin, false);
-                            return true;
-                        }
+                    Bukkit.getScheduler().callSyncMethod(plugin, () -> {
+                        buy.purchase(p, shop, holder, clicktype, rewardtype, pricetype, event, plugin, false);
+                        return true;
                     });
                 }
             }.getUserInput(p, null, null, buy.getInputText(clicktype));

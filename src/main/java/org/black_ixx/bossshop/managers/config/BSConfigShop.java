@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BSConfigShop extends BSShop {
 
@@ -59,6 +60,7 @@ public class BSConfigShop extends BSShop {
 
             ItemStack i = new ItemStack(Material.WHITE_WOOL, 1);
             ItemMeta m = i.getItemMeta();
+            assert m != null;
             m.setDisplayName(ChatColor.RED + "Your Config File contains mistakes! (" + ymlName + ")");
             List<String> lore = new ArrayList<String>();
             lore.add(ChatColor.YELLOW + "For more information check /plugins/" + BossShop.NAME + "/BugFinder.yml out!");
@@ -133,7 +135,7 @@ public class BSConfigShop extends BSShop {
     //////////////////////////////////
 
     public void addDefault(String name, String rewardType, String priceType, Object reward, Object price, List<String> menuitem, String message, int loc, String permission) {
-        ConfigurationSection c = section.getConfigurationSection("shop").createSection(name);
+        ConfigurationSection c = Objects.requireNonNull(section.getConfigurationSection("shop")).createSection(name);
         c.set("RewardType", rewardType);
         c.set("PriceType", priceType);
         c.set("Price", price);

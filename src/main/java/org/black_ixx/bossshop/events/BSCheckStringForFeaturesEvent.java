@@ -10,9 +10,9 @@ public class BSCheckStringForFeaturesEvent extends BSEvent {
     private static final HandlerList handlers = new HandlerList();
 
 
-    private String text;
-    private BSShop shop;
-    private BSBuy buy;
+    private final String text;
+    private final BSShop shop;
+    private final BSBuy buy;
 
     private boolean contains_feature;
 

@@ -21,6 +21,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class BSBuy {
@@ -31,17 +32,17 @@ public class BSBuy {
 
     private boolean fix_item; // In order for an item to not be fix it must contain a player-dependent placeholder (detected by StringManager.checkStringForFeatures)
     private ItemStack item;
-    private String name;
+    private final String name;
     private BSInputType inputtype; // null by default. A value if players need to enter input before they can purchase the item.
     private String inputtext;
-    private BSRewardType rewardT;
-    private BSPriceType priceT;
-    private Object reward;
-    private Object price;
+    private final BSRewardType rewardT;
+    private final BSPriceType priceT;
+    private final Object reward;
+    private final Object price;
     private BSCondition condition;
     private String permission;
     private boolean perm_is_group = false;
-    private String msg;
+    private final String msg;
     private int location;
 
     public BSBuy(BSRewardType rewardT, BSPriceType priceT, Object reward, Object price, String msg, int location, String permission, String name, BSCondition condition, BSInputType inputtype, String inputtext) {
@@ -153,12 +154,12 @@ public class BSBuy {
     }
 
     public ConfigurationSection getConfigurationSection(BSConfigShop shop) {
-        return shop.getConfig().getConfigurationSection("shop").getConfigurationSection(name);
+        return Objects.requireNonNull(shop.getConfig().getConfigurationSection("shop")).getConfigurationSection(name);
     }
 
     public boolean hasPermission(Player p, boolean msg, ClickType clicktype) {
         if (!isExtraPermissionExisting(clicktype)) {
-            return true;
+            return false;
         }
         String permission = getExtraPermission(clicktype);
 
@@ -167,25 +168,25 @@ public class BSBuy {
             for (String group : ClassManager.manager.getVaultHandler().getPermission().getPlayerGroups(p)) {
                 no_group = false;
                 if (group.equalsIgnoreCase(permission)) {
-                    return true;
+                    return false;
                 }
             }
             if (no_group && permission.equalsIgnoreCase("default")) {
-                return true;
+                return false;
             }
             if (msg) {
                 ClassManager.manager.getMessageHandler().sendMessage("Main.NoPermission", p);
             }
-            return false;
+            return true;
         }
 
         if (p.hasPermission(permission)) {
-            return true;
+            return false;
         }
         if (msg) {
             ClassManager.manager.getMessageHandler().sendMessage("Main.NoPermission", p);
         }
-        return false;
+        return true;
     }
 
     public boolean isExtraPermissionExisting(ClickType clicktype) {
@@ -274,7 +275,7 @@ public class BSBuy {
                 }
             }
 
-            boolean possibly_customizable = shop == null ? true : shop.isCustomizable();
+            boolean possibly_customizable = shop == null || shop.isCustomizable();
             if (possibly_customizable) {
                 if (p != null) { //When shop is customizable, the variables needs to be adapted to the player
                     rewardMessage = rewardT.getDisplayReward(p, this, reward, null);
@@ -282,20 +283,20 @@ public class BSBuy {
                 }
             }
 
-            if (priceMessage != null && priceMessage != "" && priceMessage.length() > 0) {
+            if (priceMessage != null && priceMessage.length() > 0) {
                 msg = msg.replace("%price%", priceMessage);
             }
-            if (rewardMessage != null && rewardMessage != "" && rewardMessage.length() > 0) {
+            if (rewardMessage != null && rewardMessage.length() > 0) {
                 msg = msg.replace("%reward%", rewardMessage);
             }
         }
 
         //Not working with these variables anymore. They are still included and set to "" in order to make previous shops still look good and stay compatible.
-        if (priceT != null && priceT.name() != "" && priceT.name().length() > 0) {
+        if (priceT != null && !Objects.equals(priceT.name(), "") && priceT.name().length() > 0) {
             msg = msg.replace(" %pricetype%", "");
             msg = msg.replace("%pricetype%", "");
         }
-        if (rewardT != null && rewardT.name() != "" && rewardT.name().length() > 0) {
+        if (rewardT != null && !Objects.equals(rewardT.name(), "") && rewardT.name().length() > 0) {
             msg = msg.replace(" %rewardtype%", "");
             msg = msg.replace("%rewardtype%", "");
         }
@@ -303,7 +304,7 @@ public class BSBuy {
         //Handle rest
         msg = msg.replace("%shopitemname%", this.name);
 
-        String name = this.name;
+        String name;
         if (shop != null && item != null) {
             String item_title = ClassManager.manager.getItemStackTranslator().readItemName(item);
             if (item_title != null) {
@@ -381,7 +382,7 @@ public class BSBuy {
     }
 
     public void click(Player p, BSShop shop, BSShopHolder holder, ClickType clicktype, InventoryClickEvent event, BossShop plugin) {
-        if (!hasPermission(p, true, clicktype)) {
+        if (hasPermission(p, true, clicktype)) {
             Misc.playSound(p, ClassManager.manager.getSettings().getPropertyString(Settings.SOUND_SHOPITEM_NOPERMISSION, this, null));
             return;
         }
@@ -516,7 +517,7 @@ public class BSBuy {
 
         //Update message
         if (message != null) {
-            if (o != null && o != "" && message.contains("%left%")) {
+            if (o != null && !o.equals("") && message.contains("%left%")) {
                 message = message.replace("%left%", o);
             }
             message = plugin.getClassManager().getStringManager().transform(message, this, shop, holder, p); //Transform message before taking price because then ItemAll works fine

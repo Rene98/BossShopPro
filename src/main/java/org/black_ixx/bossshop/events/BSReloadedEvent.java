@@ -9,7 +9,7 @@ public class BSReloadedEvent extends BSEvent {
     private static final HandlerList handlers = new HandlerList();
 
 
-    private BossShop plugin;
+    private final BossShop plugin;
 
 
     public BSReloadedEvent(BossShop plugin) {
