@@ -14,11 +14,11 @@ public class ServerPingingManager {
     private final String[] placeholder_names = new String[]{"players", "motd"};
 
 
-    private ServerPingingList list = new ServerPingingList();
+    private final ServerPingingList list = new ServerPingingList();
     private ServerConnectorSmart connector;
     private boolean ready_to_transform;
 
-    private ServerPingingRunnableHandler runnablehandler = new ServerPingingRunnableHandler();
+    private final ServerPingingRunnableHandler runnablehandler = new ServerPingingRunnableHandler();
 
 
     public ServerPingingManager(BossShop plugin) {

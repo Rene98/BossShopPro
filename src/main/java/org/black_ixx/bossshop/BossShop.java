@@ -143,10 +143,7 @@ public class BossShop extends JavaPlugin {
                 addon.reload(sender);
             }
         }
-
         manager.setupDependentClasses();
-
-
         BSReloadedEvent event = new BSReloadedEvent(this);
         Bukkit.getPluginManager().callEvent(event);
     }

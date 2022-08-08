@@ -14,6 +14,7 @@ public class ItemDataPartName extends ItemDataPart {
     @Override
     public ItemStack transform(ItemStack item, String used_name, String argument) {
         ItemMeta meta = item.getItemMeta();
+        assert meta != null;
         meta.setDisplayName(argument);
         item.setItemMeta(meta);
         return item;
@@ -38,6 +39,7 @@ public class ItemDataPartName extends ItemDataPart {
     @Override
     public List<String> read(ItemStack i, List<String> output) {
         ItemMeta meta = i.getItemMeta();
+        assert meta != null;
         if (meta.hasDisplayName()) {
             output.add("name:" + meta.getDisplayName().replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&"));
         }
@@ -49,7 +51,9 @@ public class ItemDataPartName extends ItemDataPart {
     public boolean isSimilar(ItemStack shop_item, ItemStack player_item, BSBuy buy, Player p) {
         ItemMeta ms = shop_item.getItemMeta();
         ItemMeta mp = player_item.getItemMeta();
+        assert ms != null;
         if (ms.hasDisplayName()) {
+            assert mp != null;
             if (!mp.hasDisplayName()) {
                 return false;
             }

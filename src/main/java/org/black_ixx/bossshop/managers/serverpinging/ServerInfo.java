@@ -13,12 +13,12 @@ public class ServerInfo {
     public final static int TYPE_BUNGEECORD = 1;
 
 
-    private int type;
+    private final int type;
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
     private int timeout;
-    private InetSocketAddress address;
+    private final InetSocketAddress address;
 
     private int players;
     private int max_players;
@@ -29,7 +29,7 @@ public class ServerInfo {
     private boolean being_pinged;
 
 
-    private Set<ConnectedBuyItem> buyitems = new LinkedHashSet<ConnectedBuyItem>();
+    private final Set<ConnectedBuyItem> buyitems = new LinkedHashSet<ConnectedBuyItem>();
 
 
     public ServerInfo(String host, int port, int timeout) {

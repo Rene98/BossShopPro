@@ -11,6 +11,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PageLayoutHandler {
 
@@ -49,8 +50,8 @@ public class PageLayoutHandler {
 
         items = new ArrayList<BSBuy>();
         if (section.isConfigurationSection("items")) {
-            for (String key : section.getConfigurationSection("items").getKeys(false)) {
-                BSBuy buy = ClassManager.manager.getBuyItemHandler().loadItem(section.getConfigurationSection("items"), null, key);
+            for (String key : Objects.requireNonNull(section.getConfigurationSection("items")).getKeys(false)) {
+                BSBuy buy = ClassManager.manager.getBuyItemHandler().loadItem(Objects.requireNonNull(section.getConfigurationSection("items")), null, key);
                 if (buy != null) {
                     items.add(buy);
                 }

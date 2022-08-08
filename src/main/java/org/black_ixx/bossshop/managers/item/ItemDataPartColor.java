@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.material.Colorable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ItemDataPartColor extends ItemDataPart {
 
@@ -75,7 +76,7 @@ public class ItemDataPartColor extends ItemDataPart {
     public List<String> read(ItemStack i, List<String> output) {
         if (i.getItemMeta() instanceof Colorable) {
             Colorable c = (Colorable) (i.getItemMeta());
-            Color color = c.getColor().getColor();
+            Color color = Objects.requireNonNull(c.getColor()).getColor();
             output.add("color:" + color.getRed() + "#" + color.getGreen() + "#" + color.getBlue());
 
         } else if (i.getItemMeta() instanceof LeatherArmorMeta) {
@@ -86,6 +87,7 @@ public class ItemDataPartColor extends ItemDataPart {
         } else if (i.getItemMeta() instanceof PotionMeta) {
             PotionMeta m = (PotionMeta) i.getItemMeta();
             Color color = m.getColor();
+            assert color != null;
             output.add("color:" + color.getRed() + "#" + color.getGreen() + "#" + color.getBlue());
         }
         return output;

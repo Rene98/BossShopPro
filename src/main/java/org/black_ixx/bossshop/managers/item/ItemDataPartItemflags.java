@@ -16,6 +16,7 @@ public class ItemDataPartItemflags extends ItemDataPart {
         ItemMeta meta = item.getItemMeta();
 
         if (argument.equalsIgnoreCase("true") || argument.equalsIgnoreCase("all")) {
+            assert meta != null;
             meta.addItemFlags(ItemFlag.values());
         } else {
             String[] flags = argument.split("#");
@@ -27,6 +28,7 @@ public class ItemDataPartItemflags extends ItemDataPart {
                 }
                 try {
                     ItemFlag itemflag = ItemFlag.valueOf(flag.toUpperCase());
+                    assert meta != null;
                     meta.addItemFlags(itemflag);
                 } catch (Exception e) {
                     ClassManager.manager.getBugFinder().warn("Mistake in Config: '" + flag + "' is not a valid '" + used_name + "'.");

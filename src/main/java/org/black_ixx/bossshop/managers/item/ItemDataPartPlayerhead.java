@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.inventory.meta.tags.ItemTagType;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ItemDataPartPlayerhead extends ItemDataPart {
 
@@ -26,10 +27,12 @@ public class ItemDataPartPlayerhead extends ItemDataPart {
 
         if (ClassManager.manager.getStringManager().checkStringForFeatures(null, null, null, argument)) {
             NamespacedKey key = new NamespacedKey(ClassManager.manager.getPlugin(), "skullOwnerPlaceholder");
+            assert meta != null;
             meta.getCustomTagContainer().setCustomTag(key, ItemTagType.STRING, argument); //argument = placeholder
         } else {
             OfflinePlayer player = Bukkit.getOfflinePlayer(argument);
             if (player != null) {
+                assert meta != null;
                 meta.setOwningPlayer(player);
             } else {
                 meta.setOwner(argument);
@@ -80,13 +83,16 @@ public class ItemDataPartPlayerhead extends ItemDataPart {
             SkullMeta ms = (SkullMeta) shop_item.getItemMeta();
             SkullMeta mp = (SkullMeta) player_item.getItemMeta();
 
+            assert ms != null;
             if (ms.hasOwner()) {
 
+                assert mp != null;
                 if (!mp.hasOwner()) {
                     return false;
                 }
 
-                return ms.getOwner().equalsIgnoreCase(mp.getOwner());
+//                return Objects.requireNonNull(ms.getOwner()).equalsIgnoreCase(mp.getOwner());
+                return Objects.requireNonNull(ms.getOwningPlayer()).equals(mp.getOwningPlayer());
 
             }
         }

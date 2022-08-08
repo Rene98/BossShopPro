@@ -22,9 +22,9 @@ public class ServerPingingRunnableHandler {
     }
 
 
-    public class ServerPingingRunnable extends BukkitRunnable {
+    public static class ServerPingingRunnable extends BukkitRunnable {
 
-        private ServerPingingManager manager;
+        private final ServerPingingManager manager;
 
         public ServerPingingRunnable(ServerPingingManager manager) {
             this.manager = manager;

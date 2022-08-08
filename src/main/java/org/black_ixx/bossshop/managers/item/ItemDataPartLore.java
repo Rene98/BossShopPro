@@ -8,7 +8,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ItemDataPartLore extends ItemDataPart {
@@ -21,13 +23,12 @@ public class ItemDataPartLore extends ItemDataPart {
         // Therefore, all remaining hashtags are safe to interpret as new line (traditional BossShop line separator).
         String argumentTransformed = ClassManager.manager.getStringManager().transform(argument);
         String[] parts = argumentTransformed.split("[#\\n]");
+        assert meta != null;
         List<String> lore = meta.getLore();
         if (lore == null) {
             lore = new ArrayList<>();
         }
-        for (String part : parts) {
-            lore.add(part);
-        }
+        lore.addAll(Arrays.asList(parts));
         meta.setLore(lore);
         item.setItemMeta(meta);
         return item;
@@ -51,9 +52,9 @@ public class ItemDataPartLore extends ItemDataPart {
 
     @Override
     public List<String> read(ItemStack i, List<String> output) {
-        if (i.getItemMeta().hasLore()) {
+        if (Objects.requireNonNull(i.getItemMeta()).hasLore()) {
             int a = 1;
-            for (String line : i.getItemMeta().getLore()) {
+            for (String line : Objects.requireNonNull(i.getItemMeta().getLore())) {
                 output.add("lore" + a + ":" + line.replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&"));
                 a++;
             }
@@ -66,12 +67,14 @@ public class ItemDataPartLore extends ItemDataPart {
     public boolean isSimilar(ItemStack shop_item, ItemStack player_item, BSBuy buy, Player p) {
         ItemMeta ms = shop_item.getItemMeta();
         ItemMeta mp = player_item.getItemMeta();
+        assert ms != null;
         if (ms.hasLore()) {
+            assert mp != null;
             if (!mp.hasLore()) {
                 return false;
             }
 
-            if (ms.getLore().size() > mp.getLore().size()) {
+            if (Objects.requireNonNull(ms.getLore()).size() > Objects.requireNonNull(mp.getLore()).size()) {
                 return false;
             }
             for (int i = 0; i < ms.getLore().size(); i++) {

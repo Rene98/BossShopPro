@@ -10,6 +10,7 @@ import org.bukkit.plugin.Plugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class BSAddonConfig implements BSAddonStorage {
@@ -69,16 +70,13 @@ public class BSAddonConfig implements BSAddonStorage {
 
     /**
      * Reload the addon config
-     * @return reloaded or not
      */
-    public boolean reload() {
+    public void reload() {
         try {
             config = YamlConfiguration.loadConfiguration(file);
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
     }
 
     /**
@@ -215,7 +213,7 @@ public class BSAddonConfig implements BSAddonStorage {
             for (String key : s.getKeys(true)) {
                 s.set(key, null);
             }
-            config.set(s.getCurrentPath(), null);
+            config.set(Objects.requireNonNull(s.getCurrentPath()), null);
         }
     }
 

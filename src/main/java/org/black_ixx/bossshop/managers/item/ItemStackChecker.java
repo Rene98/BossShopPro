@@ -16,8 +16,8 @@ public class ItemStackChecker {
     public final static int INVENTORY_SLOT_START = 0;
     public final static int INVENTORY_SLOT_END = 35;
 
-    private List<String> tools_suffixes;
-    private List<Material> tools_complete;
+    private final List<String> tools_suffixes;
+    private final List<Material> tools_complete;
 
     public ItemStackChecker() {
         tools_suffixes = new ArrayList<>();

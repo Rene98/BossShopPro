@@ -19,6 +19,7 @@ import org.bukkit.inventory.meta.tags.ItemTagType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ItemStackTranslator {
@@ -30,13 +31,14 @@ public class ItemStackTranslator {
                 ItemMeta meta = item.getItemMeta();
 
                 //Normal itemdata
+                assert meta != null;
                 if (meta.hasDisplayName()) {
                     meta.setDisplayName(ClassManager.manager.getStringManager().transform(meta.getDisplayName(), buy, shop, holder, target));
                 }
 
                 if (meta.hasLore()) {
                     List<String> lore = meta.getLore();
-                    for (int i = 0; i < lore.size(); i++) {
+                    for (int i = 0; i < Objects.requireNonNull(lore).size(); i++) {
                         lore.set(i, ClassManager.manager.getStringManager().transform(lore.get(i), buy, shop, holder, target));
                     }
                     meta.setLore(splitLore(lore, ClassManager.manager.getSettings().getMaxLineLength(), final_version));
@@ -120,13 +122,13 @@ public class ItemStackTranslator {
 
     public String getFriendlyText(List<ItemStack> items) {
         if (items != null) {
-            String msg = "";
+            StringBuilder msg = new StringBuilder();
             int x = 0;
             for (ItemStack i : items) {
                 x++;
-                msg += readItemStack(i) + (x < items.size() ? ", " : "");
+                msg.append(readItemStack(i)).append(x < items.size() ? ", " : "");
             }
-            return msg;
+            return msg.toString();
         }
         return null;
     }
@@ -155,6 +157,7 @@ public class ItemStackTranslator {
                 ItemMeta meta = item.getItemMeta();
 
                 //Normal itemdata
+                assert meta != null;
                 if (meta.hasDisplayName()) {
                     if (s.checkStringForFeatures(shop, buy, item, meta.getDisplayName())) {
                         b = true;
@@ -163,7 +166,7 @@ public class ItemStackTranslator {
 
                 if (meta.hasLore()) {
                     List<String> lore = meta.getLore();
-                    for (int i = 0; i < lore.size(); i++) {
+                    for (int i = 0; i < Objects.requireNonNull(lore).size(); i++) {
                         if (s.checkStringForFeatures(shop, buy, item, lore.get(i))) {
                             b = true;
                         }
@@ -174,7 +177,7 @@ public class ItemStackTranslator {
                 if (meta instanceof SkullMeta) {
                     SkullMeta skullmeta = (SkullMeta) meta;
                     if (skullmeta.hasOwner()) {
-                        if (s.checkStringForFeatures(shop, buy, item, skullmeta.getOwner())) {
+                        if (s.checkStringForFeatures(shop, buy, item, Objects.requireNonNull(skullmeta.getOwner()))) {
                             b = true;
                         }
                     }
@@ -188,6 +191,7 @@ public class ItemStackTranslator {
         if (item != null) {
             if (item.hasItemMeta()) {
                 ItemMeta meta = item.getItemMeta();
+                assert meta != null;
                 if (meta.hasDisplayName()) {
                     return meta.getDisplayName();
                 }
@@ -212,10 +216,13 @@ public class ItemStackTranslator {
             ItemMeta meta_source = source.getItemMeta();
             ItemMeta meta_receiver = receiver.getItemMeta();
 
+            assert meta_source != null;
             if (meta_source.hasDisplayName()) {
+                assert meta_receiver != null;
                 meta_receiver.setDisplayName(meta_source.getDisplayName());
             }
             if (meta_source.hasLore()) {
+                assert meta_receiver != null;
                 meta_receiver.setLore(meta_source.getLore());
             }
 

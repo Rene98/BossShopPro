@@ -33,13 +33,13 @@ public class BossShopAPI {
 
     /**
      * Gets the name of the addon for BossShop
-     * @param addonname the name of the addon
+     * @param AddonName the name of the addon
      * @return addon
      */
-    public BossShopAddon getAddon(String addonname) {
+    public BossShopAddon getAddon(String AddonName) {
         if (enabled_addons != null) {
             for (BossShopAddon addon : enabled_addons) {
-                if (addon.getAddonName().equalsIgnoreCase(addonname)) {
+                if (addon.getAddonName().equalsIgnoreCase(AddonName)) {
                     return addon;
                 }
             }
@@ -55,9 +55,8 @@ public class BossShopAPI {
     //For single shop
     public boolean isValidShop(InventoryView v) {
         if (v != null) {
-            if (v.getTopInventory() != null) {
-                return isValidShop(v.getTopInventory());
-            }
+            v.getTopInventory();
+            return isValidShop(v.getTopInventory());
         }
         return false;
     }

@@ -22,7 +22,7 @@ public class MathTools {
     public static void init(String loc, int grouping_size) {
         try {
             String[] parts = loc.split("_");
-            Locale l = Locale.forLanguageTag(loc);
+            Locale l;
             if (parts.length >= 2) {
                 l = new Locale(parts[0].trim(), parts[1].trim());
             } else {
@@ -113,10 +113,7 @@ public class MathTools {
                 return true;
             }
         }
-        if (pricetype == BSPriceType.Exp) {
-            return true;
-        }
-        return false;
+        return pricetype == BSPriceType.Exp;
     }
 
     public static String displayNumber(double d, List<String> formatting, boolean integer_value) {

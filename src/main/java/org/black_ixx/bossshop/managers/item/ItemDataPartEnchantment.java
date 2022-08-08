@@ -95,7 +95,7 @@ public class ItemDataPartEnchantment extends ItemDataPart {
     @Override
     public boolean isSimilar(ItemStack shop_item, ItemStack player_item, BSBuy buy, Player p) {
         //normal enchantments
-        if (!containsEnchantments(shop_item.getEnchantments(), player_item.getEnchantments(), buy)) {
+        if (containsEnchantments(shop_item.getEnchantments(), player_item.getEnchantments(), buy)) {
             return false;
         }
 
@@ -109,7 +109,7 @@ public class ItemDataPartEnchantment extends ItemDataPart {
 
             EnchantmentStorageMeta ms = (EnchantmentStorageMeta) shop_item.getItemMeta();
             EnchantmentStorageMeta mp = (EnchantmentStorageMeta) player_item.getItemMeta();
-            if (!containsEnchantments(ms.getStoredEnchants(), mp.getStoredEnchants(), buy)) {
+            if (containsEnchantments(ms.getStoredEnchants(), mp.getStoredEnchants(), buy)) {
                 return false;
             }
 
@@ -123,24 +123,24 @@ public class ItemDataPartEnchantment extends ItemDataPart {
     private boolean containsEnchantments(Map<Enchantment, Integer> es, Map<Enchantment, Integer> ep, BSBuy buy) {
         for (Enchantment e : es.keySet()) {
             if (!ep.containsKey(e)) {
-                return false;
+                return true;
             }
             if (ep.get(e) < es.get(e)) {
-                return false;
+                return true;
             }
         }
         if (!ClassManager.manager.getSettings().getPropertyBoolean(Settings.ALLOW_SELLING_GREATER_ENCHANTS, buy)) {
             for (Enchantment e : ep.keySet()) {
                 if (!es.containsKey(e)) {
-                    return false;
+                    return true;
                 }
                 if (es.get(e) < ep.get(e)) {
-                    return false;
+                    return true;
                 }
             }
         }
 
-        return true;
+        return false;
     }
 
 

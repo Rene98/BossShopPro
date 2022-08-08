@@ -12,4 +12,5 @@ public class BSPBungeeCordPlugin extends Plugin {
     public void onEnable() {
         getProxy().getPluginManager().registerListener(this, new BSPBungeeCordPluginListener(this));
     }
+
 }

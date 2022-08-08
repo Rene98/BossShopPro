@@ -10,11 +10,11 @@ import java.io.IOException;
 public class StorageManager {
 
 
-    private final String fileName = "data";
     private final File file;
     private FileConfiguration config = null;
 
     public StorageManager(final BossShop plugin) {
+        String fileName = "data";
         this.file = new File(plugin.getDataFolder().getAbsolutePath(), fileName);
         reloadConfig();
     }

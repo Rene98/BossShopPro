@@ -78,6 +78,7 @@ public class ItemDataPartDurability extends ItemDataPart {
         if (shop_item.getItemMeta() instanceof Damageable) {
             Damageable a = (Damageable) shop_item.getItemMeta();
             Damageable b = (Damageable) player_item.getItemMeta();
+            assert b != null;
             if (a.getDamage() != b.getDamage()) {
                 return false;
             }

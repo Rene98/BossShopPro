@@ -33,7 +33,7 @@ public class ItemStackCreator {
                         new_list = cloneList(itemData);
                     }
                     int i = InputReader.getInt(reward_line, -1) - 1;
-                    new_list = transform(line, i, new_list, buy, cshop, "Reward");
+                    transform(line, i, new_list, buy, cshop, "Reward");
                 }
 
                 String price_line = StringManipulationLib.figureOutVariable(line, "priceitem", 0);
@@ -42,7 +42,7 @@ public class ItemStackCreator {
                         new_list = cloneList(itemData);
                     }
                     int i = InputReader.getInt(reward_line, -1) - 1;
-                    new_list = transform(line, i, new_list, buy, cshop, "Price");
+                    transform(line, i, new_list, buy, cshop, "Price");
                 }
 
                 if (new_list != null) {
@@ -57,16 +57,14 @@ public class ItemStackCreator {
         return createItemStack(itemData, final_version);
     }
 
-    private List<String> transform(String line, int index, List<String> new_list, BSBuy buy, BSConfigShop shop, String path) {
+    private void transform(String line, int index, List<String> new_list, BSBuy buy, BSConfigShop shop, String path) {
         if (index != -1) {
             new_list.remove(line);
 
             List<List<String>> list = InputReader.readStringListList(buy.getConfigurationSection(shop).get(path));
             if (list != null) {
                 if (list.size() > index) {
-                    for (String entry : list.get(index)) {
-                        new_list.add(entry);
-                    }
+                    new_list.addAll(list.get(index));
                 } else {
                     ClassManager.manager.getBugFinder().warn("Was trying to import the item look for MenuItem of shopitem '" + buy.getName() + "' in shop '" + shop.getShopName() + "' but your " + path + " does not contain a " + index + ". item!");
                 }
@@ -74,7 +72,6 @@ public class ItemStackCreator {
                 ClassManager.manager.getBugFinder().warn("Was trying to import the item look for MenuItem of shopitem '" + buy.getName() + "' in shop '" + shop.getShopName() + "' but your " + path + " is not an item list!");
             }
         }
-        return new_list;
     }
 
     private List<String> cloneList(List<String> list) {

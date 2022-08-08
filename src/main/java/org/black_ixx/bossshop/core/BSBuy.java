@@ -55,16 +55,14 @@ public class BSBuy {
         this.priceT = priceT;
         this.rewardT = rewardT;
 
-        if (permission != null && permission != "") {
+        if (permission != null && !permission.equals("")) {
             this.permission = permission;
             if (permission.startsWith("[") && permission.endsWith("]")) {
                 if (permission.length() > 2) {
                     String group = permission.substring(1, permission.length() - 1);
-                    if (group != null) {
-                        ClassManager.manager.getSettings().setVaultEnabled(true);
-                        this.permission = group;
-                        perm_is_group = true;
-                    }
+                    ClassManager.manager.getSettings().setVaultEnabled(true);
+                    this.permission = group;
+                    perm_is_group = true;
                 }
             }
         }
@@ -194,10 +192,7 @@ public class BSBuy {
         if (permission == null) {
             return false;
         }
-        if (permission.equalsIgnoreCase("")) {
-            return false;
-        }
-        return true;
+        return !permission.equalsIgnoreCase("");
     }
 
     public boolean isExtraPermissionGroup(ClickType clicktype) {

@@ -5,6 +5,7 @@ import org.black_ixx.bossshop.core.BSShop;
 import org.black_ixx.bossshop.managers.features.PageLayoutHandler;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.jetbrains.annotations.NotNull;
 
 
 public class BSChoosePageLayoutEvent extends BSEvent {
@@ -44,7 +45,7 @@ public class BSChoosePageLayoutEvent extends BSEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 

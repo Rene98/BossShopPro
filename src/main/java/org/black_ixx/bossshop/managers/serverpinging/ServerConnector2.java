@@ -12,7 +12,7 @@ public class ServerConnector2 implements ServerConnector {
 
     //Seems to support some 1.8/1.9/1.10 servers
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
 
     @Override
@@ -213,7 +213,7 @@ public class ServerConnector2 implements ServerConnector {
         }
     }
 
-    public class Version {
+    public static class Version {
         private String name;
         private String protocol;
 
@@ -226,7 +226,7 @@ public class ServerConnector2 implements ServerConnector {
         }
     }
 
-    public class Description {
+    public static class Description {
         private String text;
 
         public String getText() {
