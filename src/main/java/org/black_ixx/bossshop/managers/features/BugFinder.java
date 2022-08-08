@@ -20,7 +20,7 @@ public class BugFinder {
     private final File file;
     String USER = "%%__USER__%%";
     private FileConfiguration config = null;
-    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy dd-MM 'at' hh:mm:ss a (E)");
+    private final SimpleDateFormat formatter = new SimpleDateFormat("yyyy dd-MM 'at' hh:mm:ss a (E)");
 
     public BugFinder(final BossShop plugin) {
         this.plugin = plugin;

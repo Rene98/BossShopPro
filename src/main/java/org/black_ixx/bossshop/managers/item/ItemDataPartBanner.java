@@ -34,11 +34,13 @@ public class ItemDataPartBanner extends ItemDataPart {
                         String[] bpattern = bdata[y].split("-");
                         DyeColor patterncolor = DyeColor.valueOf(bpattern[0]);
                         PatternType patterntype = PatternType.getByIdentifier(bpattern[1]);
+                        assert patterntype != null;
                         Pattern pattern = new Pattern(patterncolor, patterntype);
                         patterns.add(pattern);
                     } catch (Exception e) {
                     }
                 }
+                assert meta != null;
                 meta.setBaseColor(basecolor);
                 meta.setPatterns(patterns);
             }

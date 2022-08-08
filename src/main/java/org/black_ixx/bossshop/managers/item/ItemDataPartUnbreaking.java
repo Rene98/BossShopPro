@@ -17,6 +17,7 @@ public class ItemDataPartUnbreaking extends ItemDataPart {
             b = InputReader.getBoolean(argument, true);
         }
         ItemMeta meta = item.getItemMeta();
+        assert meta != null;
         meta.setUnbreakable(b);
         item.setItemMeta(meta);
         return item;
@@ -46,6 +47,7 @@ public class ItemDataPartUnbreaking extends ItemDataPart {
     @Override
     public List<String> read(ItemStack i, List<String> output) {
         ItemMeta meta = i.getItemMeta();
+        assert meta != null;
         if (meta.isUnbreakable()) {
             output.add("unbreakable:true");
         }

@@ -114,9 +114,9 @@ public class ItemDataPartCustomSkull extends ItemDataPart {
 
     @Override
     public List<String> read(ItemStack i, List<String> output) {
-        String skulltexture = readSkullTexture(i);
-        if (skulltexture != null) {
-            output.add("customskull:" + skulltexture);
+        String SkullTexture = readSkullTexture(i);
+        if (SkullTexture != null) {
+            output.add("customskull:" + SkullTexture);
         }
         return output;
     }

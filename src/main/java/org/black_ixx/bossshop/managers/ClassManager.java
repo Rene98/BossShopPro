@@ -31,22 +31,22 @@ public class ClassManager {
 
     public static ClassManager manager;
     String USER = "%%__USER__%%";
-    private ItemStackChecker itemstackChecker;
-    private StringManager stringmanager;
+    private final ItemStackChecker itemstackChecker;
+    private final StringManager stringmanager;
 
 
     ///////////////////////////////
     private PointsManager pointsmanager;
     private VaultHandler vaulthandler;
     private PlaceholderAPIHandler placeholderhandler;
-    private MessageHandler messagehandler;
-    private ItemStackCreator itemstackCreator;
-    private ItemStackTranslator itemstackTranslator;
-    private BuyItemHandler buyItemHandler;
-    private ConfigHandler configHandler;
-    private BugFinder bugfinder;
-    private BossShop plugin;
-    private Settings settings;
+    private final MessageHandler messagehandler;
+    private final ItemStackCreator itemstackCreator;
+    private final ItemStackTranslator itemstackTranslator;
+    private final BuyItemHandler buyItemHandler;
+    private final ConfigHandler configHandler;
+    private final BugFinder bugfinder;
+    private final BossShop plugin;
+    private final Settings settings;
     private BSShops shops;
     private PageLayoutHandler pagelayoutHandler;
     private BungeeCordManager bungeeCordManager;
@@ -54,13 +54,13 @@ public class ClassManager {
     private TransactionLog transactionLog;
     private ServerPingingManager serverPingingManager;
     private AutoRefreshHandler autoRefreshHandler;
-    private MultiplierHandler multiplierHandler;
-    private StorageManager storageManager;
+    private final MultiplierHandler multiplierHandler;
+    private final StorageManager storageManager;
     private ISpawnEggHandler spawnEggHandler;
     private ISpawnerHandler spawnerHandler;
     private LanguageManager languageManager;
-    private ItemDataStorage itemdataStorage;
-    private PlayerDataHandler playerdataHandler;
+    private final ItemDataStorage itemdataStorage;
+    private final PlayerDataHandler playerdataHandler;
     public ClassManager(BossShop plugin) {
         this.plugin = plugin;
         manager = this;

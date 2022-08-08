@@ -2,6 +2,7 @@ package org.black_ixx.bossshop.api;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class BossShopAddonConfigurable extends BossShopAddon {
 
@@ -42,7 +43,7 @@ public abstract class BossShopAddonConfigurable extends BossShopAddon {
      * @return config for addon
      */
     @Override
-    public FileConfiguration getConfig() {
+    public @NotNull FileConfiguration getConfig() {
         return config.getConfig();
     }
 

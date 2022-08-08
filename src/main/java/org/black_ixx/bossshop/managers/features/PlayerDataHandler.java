@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 public class PlayerDataHandler {
 
-    private HashMap<Player, BSShop> last_shop = new HashMap<>();
-    private HashMap<Player, String> input = new HashMap<>();
-    private HashMap<Player, BSChatUserInput> input_waiting = new HashMap<>();
+    private final HashMap<Player, BSShop> last_shop = new HashMap<>();
+    private final HashMap<Player, String> input = new HashMap<>();
+    private final HashMap<Player, BSChatUserInput> input_waiting = new HashMap<>();
 
     public void openedShop(Player p, BSShop shop) {
         this.last_shop.put(p, shop);

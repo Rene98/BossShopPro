@@ -121,7 +121,6 @@ public class CurrencyTools {
 
             case POINTS:
                 ClassManager.manager.getPointsManager().givePoints(p, reward);
-                return;
         }
     }
 

@@ -140,7 +140,7 @@ public class PointsManager {
         //COINS(new String[] { "Coins"}),
         CUSTOM(new String[0]);
 
-        private String[] nicknames;
+        private final String[] nicknames;
         private String custom_name;
 
         private PointsPlugin(String[] nicknames) {

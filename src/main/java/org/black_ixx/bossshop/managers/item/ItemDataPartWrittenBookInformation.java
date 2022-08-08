@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
 import java.util.List;
+import java.util.Objects;
 
 
 public class ItemDataPartWrittenBookInformation extends ItemDataPart {
@@ -19,7 +20,7 @@ public class ItemDataPartWrittenBookInformation extends ItemDataPart {
             return item;
         }
 
-        String parts[] = argument.split("#", 2);
+        String[] parts = argument.split("#", 2);
         if (parts.length != 2) {
             ClassManager.manager.getBugFinder().severe("Mistake in Config: Following line is invalid: '" + used_name + ":" + argument + "'. It should look like this: 'book:<title>#<author>'.");
             return item;
@@ -53,7 +54,7 @@ public class ItemDataPartWrittenBookInformation extends ItemDataPart {
         if ((i.getItemMeta() instanceof BookMeta)) {
             BookMeta meta = (BookMeta) i.getItemMeta();
             if (meta.hasAuthor() || meta.hasTitle()) {
-                output.add("book:" + meta.getTitle().replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&") + "#" + meta.getAuthor().replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&"));
+                output.add("book:" + Objects.requireNonNull(meta.getTitle()).replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&") + "#" + meta.getAuthor().replaceAll(String.valueOf(ChatColor.COLOR_CHAR), "&"));
             }
         }
         return output;
@@ -75,7 +76,7 @@ public class ItemDataPartWrittenBookInformation extends ItemDataPart {
                     return false;
                 }
 
-                if (!mp.getAuthor().equals(ms.getAuthor())) {
+                if (!Objects.equals(mp.getAuthor(), ms.getAuthor())) {
                     return false;
                 }
 
@@ -86,7 +87,7 @@ public class ItemDataPartWrittenBookInformation extends ItemDataPart {
                     return false;
                 }
 
-                if (!mp.getTitle().equals(ms.getTitle())) {
+                if (!Objects.equals(mp.getTitle(), ms.getTitle())) {
                     return false;
                 }
 

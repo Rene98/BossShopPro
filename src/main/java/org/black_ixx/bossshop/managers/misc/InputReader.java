@@ -102,6 +102,7 @@ public class InputReader {
      */
     public static ItemStack readItem(Object o, boolean final_version) {
         List<ItemStack> list = readItemList(o, final_version);
+        assert list != null;
         if (list != null & !list.isEmpty()) {
             return list.get(0);
         }
@@ -116,7 +117,7 @@ public class InputReader {
     public static Enchant readEnchant(Object o) {
         String s = readString(o, false);
         if (s != null) {
-            String parts[] = s.split("#", 2);
+            String[] parts = s.split("#", 2);
             if (parts.length == 2) {
                 String p_name = parts[0].trim();
                 String p_level = parts[1].trim();

@@ -13,13 +13,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class CommandManager implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String arg, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, Command cmd, @NotNull String arg, String[] args) {
 
         if (cmd.getName().equalsIgnoreCase("bossshop") || cmd.getName().equalsIgnoreCase("shop") || cmd.getName().equalsIgnoreCase("bs")) {
 

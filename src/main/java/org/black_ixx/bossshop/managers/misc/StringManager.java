@@ -202,6 +202,7 @@ public class StringManager {
                 if (ClassManager.manager.getMultiplierHandler().hasMultipliers()) {
                     b = true;
                 }
+                assert buy != null;
                 if (buy.getPriceType(null) == BSPriceType.ItemAll || buy.getRewardType(null) == BSRewardType.ItemAll) {
                     b = true;
                 }

@@ -42,7 +42,7 @@ public abstract class ItemDataPart {
             BANNER; //UNSUPPORTED BY READITEM
 
     private static List<ItemDataPart> types;
-    private String[] names = createNames();
+    private final String[] names = createNames();
 
     public static void loadTypes() {
         types = new ArrayList<>();
@@ -92,7 +92,7 @@ public abstract class ItemDataPart {
     }
 
     public static ItemStack transformItem(ItemStack item, List<String> itemdata) {
-        Collections.sort(itemdata, new Comparator<String>() {
+        itemdata.sort(new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {//TODO: test sorting out
                 ItemDataPart type1 = detectTypeSpecial(s1);
