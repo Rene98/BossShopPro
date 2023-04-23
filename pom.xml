@@ -68,6 +68,10 @@
 			<url>https://repo.rosewooddev.io/repository/public/</url>
 		</repository>
 		<repository>
+			<id>rosewood-repo</id>
+			<url>http://maven.enjinpink.com:8081/repository/maven-public/</url>
+		</repository>
+		<repository>
 			<id>BenCodez Repo</id>
 			<url>https://nexus.bencodez.com/repository/maven-public/</url>
 		</repository>
@@ -201,14 +205,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds command points support -->
-		<dependency>
-			<groupId>pgDev.bukkit</groupId>
-			<artifactId>CommandPoints</artifactId>
-			<version>1.0</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- Adds token manager support -->
 		<dependency>
 			<groupId>com.github.Realizedd</groupId>
@@ -221,7 +217,7 @@
 		<dependency>
 			<groupId>com.enjin</groupId>
 			<artifactId>EnjinMinecraftPlugin</artifactId>
-			<version>3.5.14</version>
+			<version>3.6.0</version>
 			<scope>provided</scope>
 		</dependency>
 
