@@ -54,10 +54,6 @@
 			<url>https://mvn.lumine.io/repository/maven-public/</url>
 		</repository>
 		<repository>
-			<id>repo</id>
-			<url>https://repo.glaremasters.me/repository/public/</url>
-		</repository>
-		<repository>
 			<id>dustplanet</id>
 			<url>https://repo.dustplanet.de/artifactory/libs-release-local</url>
 		</repository>
@@ -79,6 +75,11 @@
 		<repository>
 			<id>placeholderapi</id>
 			<url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+		</repository>
+		<!-- tokenenchant repo -->
+		<repository>
+			<id>teamvk-repo</id>
+			<url>https://raw.githubusercontent.com/TeamVK/maven-repository/master/release/</url>
 		</repository>
 		<!-- Bundabrg's Repo -->
 		<repository>
@@ -171,10 +172,9 @@
 
 		<!-- Used for lilypay -->
 		<dependency>
-			<groupId>lilypad.client.connect</groupId>
-			<artifactId>api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
+			<groupId>com.github.LilyPad</groupId>
+			<artifactId>Bukkit-Connect</artifactId>
+			<version>8a604e363f</version>
 		</dependency>
 
 		<!-- Adds player points support -->
@@ -189,7 +189,7 @@
 		<dependency>
 			<groupId>com.github.Zrips</groupId>
 			<artifactId>Jobs</artifactId>
-			<version>5.1.0.0</version>
+			<version>4.17.2</version> <!-- Change the LATEST to the current version of jobs -->
 			<scope>provided</scope>
 		</dependency>
 
@@ -197,7 +197,7 @@
 		<dependency>
 			<groupId>com.bencodez</groupId>
 			<artifactId>votingplugin</artifactId>
-			<version>6.9.3</version>
+			<version>6.12.1</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -229,7 +229,7 @@
 		<dependency>
 			<groupId>com.enjin</groupId>
 			<artifactId>EnjinMinecraftPlugin</artifactId>
-			<version>3.5.7</version>
+			<version>3.5.14</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -237,7 +237,7 @@
 		<dependency>
 			<groupId>me.BukkitPVP</groupId>
 			<artifactId>PointsAPI</artifactId>
-			<version>1.6.8</version>
+			<version>1.6.5</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -245,7 +245,7 @@
 		<dependency>
 			<groupId>com.vk2gpz.tokenenchant</groupId>
 			<artifactId>TokenEnchantAPI</artifactId>
-			<version>15.3.2</version>
+			<version>18.37.1</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -296,11 +296,9 @@
 
 		<!-- Used for language utils -->
 		<dependency>
-			<groupId>com.github.apachezy</groupId>
-			<artifactId>LangUtils</artifactId>
-			<!--Please check the latest version -->
-			<version>3.2.3</version>
-			<scope>provided</scope>
+			<groupId>com.github.NyaaCat</groupId>
+			<artifactId>LanguageUtils</artifactId>
+			<version>v2.1.17-mc1.13.1</version>
 		</dependency>
 	</dependencies>
 </project>
