@@ -2,10 +2,22 @@ package org.black_ixx.bossshop.managers.features;
 
 import org.black_ixx.bossshop.BossShop;
 import org.black_ixx.bossshop.managers.ClassManager;
-import org.black_ixx.bossshop.pointsystem.*;
+import org.black_ixx.bossshop.pointsystem.BSPointsAPI;
+import org.black_ixx.bossshop.pointsystem.BSPointsPlugin;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginCommandPoints;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginEnjin;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginFailed;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginGadgetsMenu;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginJobs;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginKingdoms;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginNone;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginPlayerPoints;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginPointsAPI;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginTokenEnchant;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginTokenManager;
+import org.black_ixx.bossshop.pointsystem.BSPointsPluginVotingPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.plugin.Plugin;
 
 public class PointsManager {
 
@@ -57,14 +69,6 @@ public class PointsManager {
 
             case Jobs:
                 this.pa = new BSPointsPluginJobs();
-                break;
-
-            case MYSQL_TOKENS:
-                this.pa = new BSPointsPluginMySQL_Tokens();
-                break;
-
-            case MYSQLTOKENS:
-                this.pa = new BSPointsPluginMySQLTokens();
                 break;
 
             case VOTINGPLUGIN:

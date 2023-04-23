@@ -217,14 +217,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds tokens support -->
-		<dependency>
-			<groupId>com.masterderpydoge.tokens</groupId>
-			<artifactId>TokenCore</artifactId>
-			<version>1.4</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- Adds enjin support -->
 		<dependency>
 			<groupId>com.enjin</groupId>
@@ -267,14 +259,6 @@
 			<systemPath>${basedir}/lib/Kingdoms.jar</systemPath>
 			<scope>system</scope>
 		</dependency>-->
-
-		<!-- Adds mysql tokens support -->
-		<dependency>
-			<groupId>me.bukkit.mTokens.Inkzzz</groupId>
-			<artifactId>Tokens</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- Adds silk spawners support -->
 		<dependency>
