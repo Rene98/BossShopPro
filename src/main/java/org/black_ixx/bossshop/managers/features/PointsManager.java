@@ -4,7 +4,6 @@ import org.black_ixx.bossshop.BossShop;
 import org.black_ixx.bossshop.managers.ClassManager;
 import org.black_ixx.bossshop.pointsystem.BSPointsAPI;
 import org.black_ixx.bossshop.pointsystem.BSPointsPlugin;
-import org.black_ixx.bossshop.pointsystem.BSPointsPluginEnjin;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginFailed;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginGadgetsMenu;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginJobs;
@@ -42,10 +41,6 @@ public class PointsManager {
         }
 
         switch (p) {
-            case ENJIN_MINECRAFT_PLUGIN:
-                this.pa = new BSPointsPluginEnjin();
-                break;
-
             case PLAYERPOINTS:
                 this.pa = new BSPointsPluginPlayerPoints();
                 break;

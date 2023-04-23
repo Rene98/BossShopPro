@@ -68,10 +68,6 @@
 			<url>https://repo.rosewooddev.io/repository/public/</url>
 		</repository>
 		<repository>
-			<id>rosewood-repo</id>
-			<url>http://maven.enjinpink.com:8081/repository/maven-public/</url>
-		</repository>
-		<repository>
 			<id>BenCodez Repo</id>
 			<url>https://nexus.bencodez.com/repository/maven-public/</url>
 		</repository>
@@ -213,14 +209,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds enjin support -->
-		<dependency>
-			<groupId>com.enjin</groupId>
-			<artifactId>EnjinMinecraftPlugin</artifactId>
-			<version>3.6.0</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- Adds points api support -->
 		<dependency>
 			<groupId>me.BukkitPVP</groupId>
@@ -276,9 +264,11 @@
 
 		<!-- Used for language utils -->
 		<dependency>
-			<groupId>com.github.NyaaCat</groupId>
-			<artifactId>LanguageUtils</artifactId>
-			<version>v2.1.17-mc1.13.1</version>
+			<groupId>com.github.apachezy</groupId>
+			<artifactId>LangUtils</artifactId>
+			<!--Please check the latest version -->
+			<version>3.2.1</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
