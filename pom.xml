@@ -209,14 +209,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds points api support -->
-		<dependency>
-			<groupId>me.BukkitPVP</groupId>
-			<artifactId>PointsAPI</artifactId>
-			<version>1.6.5</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- Adds token enchant support -->
 		<dependency>
 			<groupId>com.vk2gpz.tokenenchant</groupId>

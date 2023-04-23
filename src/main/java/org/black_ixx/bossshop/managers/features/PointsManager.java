@@ -10,7 +10,6 @@ import org.black_ixx.bossshop.pointsystem.BSPointsPluginJobs;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginKingdoms;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginNone;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginPlayerPoints;
-import org.black_ixx.bossshop.pointsystem.BSPointsPluginPointsAPI;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginTokenEnchant;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginTokenManager;
 import org.black_ixx.bossshop.pointsystem.BSPointsPluginVotingPlugin;
@@ -43,10 +42,6 @@ public class PointsManager {
         switch (p) {
             case PLAYERPOINTS:
                 this.pa = new BSPointsPluginPlayerPoints();
-                break;
-
-            case POINTSAPI:
-                this.pa = new BSPointsPluginPointsAPI();
                 break;
 
             case TOKENENCHANT:
