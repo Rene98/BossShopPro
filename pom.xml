@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.black_ixx</groupId>
 	<artifactId>BossShopPro</artifactId>
-	<version>2.1.0</version>
+	<version>3.0.0</version>
 	<name>BossShopPro</name>
 	<description>Create virtual chest shops</description>
 	<build>
@@ -38,6 +38,12 @@
 
 	<repositories>
 		<repository>
+			<id>repo</id>
+			<url>https://repo.glaremasters.me/repository/public/</url>
+		</repository>
+		<repository>
+			<id>BenCodez Repo</id>
+			<url>https://nexus.bencodez.com/repository/maven-public/</url>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
@@ -170,12 +176,15 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Used for lilypay -->
+<!--		&lt;!&ndash; Used for lilypay &ndash;&gt;
 		<dependency>
-			<groupId>com.github.LilyPad</groupId>
-			<artifactId>Bukkit-Connect</artifactId>
-			<version>8a604e363f</version>
-		</dependency>
+			<groupId>lilypad.client.connect</groupId>
+			<artifactId>lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>-->
+
 
 		<!-- Adds player points support -->
 		<dependency>
@@ -194,10 +203,12 @@
 		</dependency>
 
 		<!-- Adds voting-plugin support -->
+
+		<!-- Adds voting plugin support -->
 		<dependency>
 			<groupId>com.bencodez</groupId>
 			<artifactId>votingplugin</artifactId>
-			<version>6.12.1</version>
+			<version>LATEST</version>
 			<scope>provided</scope>
 		</dependency>
 
