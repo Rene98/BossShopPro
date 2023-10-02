@@ -84,6 +84,7 @@ public class BSConfigShop extends BSShop {
         setShopName(section.getString("ShopName"));
         setDisplayName(section.getString("DisplayName"));
         setSignText(section.getString("signs.text"));
+        setBedrockMenu(section.getString("BedrockMenu"));
         setNeedPermToCreateSign(section.getBoolean("signs.NeedPermissionToCreateSign"));
         setManualInventoryRows(section.getInt("InventoryRows", -1));
 
