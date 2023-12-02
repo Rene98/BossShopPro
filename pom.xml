@@ -44,6 +44,8 @@
 		<repository>
 			<id>BenCodez Repo</id>
 			<url>https://nexus.bencodez.com/repository/maven-public/</url>
+		</repository>
+		<repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
