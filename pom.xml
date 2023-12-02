@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.black_ixx</groupId>
 	<artifactId>BossShopPro</artifactId>
-	<version>2.1.0</version>
+	<version>3.0.2</version>
 	<name>BossShopPro</name>
 	<description>Create virtual chest shops</description>
 	<build>
@@ -38,6 +38,14 @@
 
 	<repositories>
 		<repository>
+			<id>repo</id>
+			<url>https://repo.glaremasters.me/repository/public/</url>
+		</repository>
+		<repository>
+			<id>BenCodez Repo</id>
+			<url>https://nexus.bencodez.com/repository/maven-public/</url>
+		</repository>
+		<repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
@@ -67,10 +75,6 @@
 			<id>rosewood-repo</id>
 			<url>https://repo.rosewooddev.io/repository/public/</url>
 		</repository>
-		<repository>
-			<id>BenCodez Repo</id>
-			<url>https://nexus.bencodez.com/repository/maven-public/</url>
-		</repository>
 		<!-- placeholderapi -->
 		<repository>
 			<id>placeholderapi</id>
@@ -92,6 +96,18 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+
+		<repository>
+			<id>opencollab-snapshot</id>
+			<url>https://repo.opencollab.dev/main/</url>
+		</repository>
+
+		<!-- Protocol lib -->
+		<repository>
+			<id>dmulloy2-repo</id>
+			<url>https://repo.dmulloy2.net/repository/public/</url>
+		</repository>
+
 	</repositories>
 
 	<dependencies>
@@ -170,12 +186,15 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Used for lilypay -->
+<!--		&lt;!&ndash; Used for lilypay &ndash;&gt;
 		<dependency>
-			<groupId>com.github.LilyPad</groupId>
-			<artifactId>Bukkit-Connect</artifactId>
-			<version>8a604e363f</version>
-		</dependency>
+			<groupId>lilypad.client.connect</groupId>
+			<artifactId>lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>-->
+
 
 		<!-- Adds player points support -->
 		<dependency>
@@ -193,7 +212,8 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Adds voting-plugin support -->
+
+		<!-- Adds voting plugin support -->
 		<dependency>
 			<groupId>com.bencodez</groupId>
 			<artifactId>votingplugin</artifactId>
@@ -222,7 +242,7 @@
 		<dependency>
 			<groupId>com.yapzhenyie.GadgetsMenu</groupId>
 			<artifactId>GadgetsMenu</artifactId>
-			<version>4.6.3</version>
+			<version>4.3.36</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -262,5 +282,22 @@
 			<version>3.2.1</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Used for bedrock support -->
+		<dependency>
+			<groupId>org.geysermc.geyser</groupId>
+			<artifactId>api</artifactId>
+			<version>2.2.0-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Used for packets -->
+		<dependency>
+			<groupId>com.comphenix.protocol</groupId>
+			<artifactId>ProtocolLib</artifactId>
+			<version>5.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 </project>
