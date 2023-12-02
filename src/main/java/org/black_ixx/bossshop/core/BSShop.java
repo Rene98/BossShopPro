@@ -27,8 +27,6 @@ public abstract class BSShop {
     private String shop_name = "BossShop";
     private String sign_text = "[BossShop]";
 
-    private String bedrockMenu;
-
     private String displayname;
     private String[] commands;
 
@@ -64,20 +62,6 @@ public abstract class BSShop {
     }
 
     //////////////////////////// <- Methods to get main Variables
-
-    public void setBedrockMenu(String bedrockMenu) {
-        this.bedrockMenu = bedrockMenu;
-    }
-
-    public String getBedrockMenu() {
-        return bedrockMenu;
-    }
-
-    public boolean hasBedrockMenu() {
-        return this.bedrockMenu != null;
-    }
-
-
 
     public String getShopName() {
         return shop_name;
