@@ -75,10 +75,6 @@
 			<id>rosewood-repo</id>
 			<url>https://repo.rosewooddev.io/repository/public/</url>
 		</repository>
-		<repository>
-			<id>BenCodez Repo</id>
-			<url>https://nexus.bencodez.com/repository/maven-public/</url>
-		</repository>
 		<!-- placeholderapi -->
 		<repository>
 			<id>placeholderapi</id>
@@ -99,16 +95,6 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>
-		<!-- Jitpack -->
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-
-		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 
 		<repository>
@@ -231,7 +217,7 @@
 		<dependency>
 			<groupId>com.bencodez</groupId>
 			<artifactId>votingplugin</artifactId>
-			<version>LATEST</version>
+			<version>6.12.1</version>
 			<scope>provided</scope>
 		</dependency>
 
