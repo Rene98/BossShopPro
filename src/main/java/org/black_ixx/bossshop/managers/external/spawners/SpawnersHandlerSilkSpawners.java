@@ -1,6 +1,5 @@
 package org.black_ixx.bossshop.managers.external.spawners;
 
-
 import de.dustplanet.util.SilkUtil;
 import org.black_ixx.bossshop.managers.misc.InputReader;
 import org.bukkit.entity.EntityType;

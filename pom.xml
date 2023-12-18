@@ -87,14 +87,8 @@
 		</repository>
 		<!-- Bundabrg's Repo -->
 		<repository>
-			<id>bundabrg-repo</id>
-			<url>https://repo.worldguard.com.au/repository/maven-public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
+			<id>sk89q-repo</id>
+			<url>https://maven.enginehub.org/repo/</url>
 		</repository>
 
 		<repository>
@@ -227,6 +221,12 @@
 			<artifactId>TokenManager</artifactId>
 			<version>3.2.4</version>
 			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.bstats</groupId>
+					<artifactId>bstats-bukkit</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Adds token enchant support -->
@@ -242,8 +242,9 @@
 		<dependency>
 			<groupId>com.yapzhenyie.GadgetsMenu</groupId>
 			<artifactId>GadgetsMenu</artifactId>
-			<version>4.3.36</version>
-			<scope>provided</scope>
+			<version>5.14.1</version>
+			<systemPath>${project.basedir}/jars/GadgetsMenu-5.14.1.jar</systemPath>
+			<scope>system</scope>
 		</dependency>
 
 		<!-- Adds kingdoms support -->
@@ -259,9 +260,32 @@
 		<!-- Adds silk spawners support -->
 		<dependency>
 			<groupId>de.dustplanet</groupId>
-			<artifactId>silkspawners-v1_18_R2</artifactId>
-			<version>7.3.0</version>
+			<artifactId>silkspawners</artifactId>
+			<version>7.5.0</version>
 			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sk89q</groupId>
+					<artifactId>worldguard</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sk89q.worldedit</groupId>
+					<artifactId>worldedit-bukkit</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.massivecraft.factions</groupId>
+					<artifactId>Factions</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.massivecraft.massivecore</groupId>
+					<artifactId>MassiveCore</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>org.spigotmc</groupId>
+					<artifactId>spigot</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Adds epic spawners support -->
